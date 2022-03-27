@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const is_heroku = process.env.IS_HEROKU || 3000;
+const is_heroku = process.env.IS_HEROKU || false;
 
 const herokuURI ="mongodb+srv://janeral:BCIT@2022coding@cluster0.gi0kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 //const localURI = "mongodb://127.0.0.1/?authSource=admin&retryWrites=true&w=majority;"
