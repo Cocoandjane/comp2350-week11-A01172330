@@ -7,15 +7,13 @@ global.include = function(file) {
 	return require(abs_path('/' + file));
 }
 
-
-
 const express = require('express');
 const database = include('databaseConnection');
 const router = include('routes/router');
 
 const port = process.env.PORT || 3000;
 
-database.getConnection((err, dbConnection) => {
+database.connect((err, dbConnection) => {
 	if (!err) {
 		console.log("Successfully connected to MongoDB");
 	}
@@ -23,8 +21,8 @@ database.getConnection((err, dbConnection) => {
 		console.log("Error Connecting to MongoDB");
 		console.log(err);
 	}
+	
 });
-
 
 const app = express();
 app.set('view engine', 'ejs');

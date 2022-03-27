@@ -3,8 +3,8 @@ const MongoClient = require("mongodb").MongoClient;
 const is_heroku = process.env.IS_HEROKU || false;
 
 const herokuURI ="mongodb+srv://janeral:BCIT@2022coding@cluster0.gi0kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-
-const localURI = "mongodb://localhost/?authSource=admin&retryWrites=true&w=majority;"
+//const localURI = "mongodb://127.0.0.1/?authSource=admin&retryWrites=true&w=majority;"
+const localURI = "mongodb://127.0.0.1/"
 
 if (is_heroku) {
 	var database = new MongoClient(herokuURI, 
@@ -14,7 +14,7 @@ if (is_heroku) {
 		{useNewUrlParser: true, useUnifiedTopology: true})
 }
 
-
+ module.exports = database;
 
 
 
@@ -50,5 +50,5 @@ if (is_heroku) {
 // 	var database = mysql.createPool(dbConfigLocal);
 // }
 
-// module.exports = database;
+
 		
