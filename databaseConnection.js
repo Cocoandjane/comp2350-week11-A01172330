@@ -8,7 +8,7 @@ const localURI = "mongodb://127.0.0.1/"
 
 if (is_heroku) {
 	var database = new MongoClient(herokuURI, 
-		{userNewURLParser: true, useUnifiedTopoloty: true})
+		{useNewUrlParser: true, useUnifiedTopology: true})
 } else {
 	var database = new MongoClient(localURI,
 		{useNewUrlParser: true, useUnifiedTopology: true})
