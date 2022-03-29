@@ -1,14 +1,13 @@
 const MongoClient = require("mongodb").MongoClient;
-
-const is_heroku = process.env.IS_HEROKU || false;
+const is_heroku = process.env.IS_HEROKU || true;
 
 const herokuURI ="mongodb+srv://janeral:BCIT@2022coding@cluster0.gi0kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 //const localURI = "mongodb://127.0.0.1/?authSource=admin&retryWrites=true&w=majority;"
 const localURI = "mongodb://127.0.0.1/"
 
 if (is_heroku) {
-	var database = new MongoClient(herokuURI, 
-		{useNewUrlParser: true, useUnifiedTopology: true})
+	var database = new MongoClient(herokuURI,
+ 	   {useNewUrlParser: true, useUnifiedTopology: true});
 } else {
 	var database = new MongoClient(localURI,
 		{useNewUrlParser: true, useUnifiedTopology: true})
